@@ -30,6 +30,7 @@ def _get_kwargs(
     truepeak_lufs_isnull: Union[Unset, bool] = UNSET,
     truepeak_lufs_lt: Union[Unset, float] = UNSET,
     truepeak_lufs_lte: Union[Unset, float] = UNSET,
+    video_id: Union[Unset, int] = UNSET,
 ) -> dict[str, Any]:
     params: dict[str, Any] = {}
 
@@ -74,6 +75,8 @@ def _get_kwargs(
     params["truepeak_lufs__lt"] = truepeak_lufs_lt
 
     params["truepeak_lufs__lte"] = truepeak_lufs_lte
+
+    params["video__id"] = video_id
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
@@ -131,6 +134,7 @@ def sync_detailed(
     truepeak_lufs_isnull: Union[Unset, bool] = UNSET,
     truepeak_lufs_lt: Union[Unset, float] = UNSET,
     truepeak_lufs_lte: Union[Unset, float] = UNSET,
+    video_id: Union[Unset, int] = UNSET,
 ) -> Response[PaginatedVideoFileList]:
     """Video file list
 
@@ -139,7 +143,7 @@ def sync_detailed(
 
     HTTP parameters:
 
-    `video_id` - The (parent) video by ID
+    `video__id` - The (parent) video by ID
 
     `created_time` - when this file entry was created.
 
@@ -174,6 +178,7 @@ def sync_detailed(
         truepeak_lufs_isnull (Union[Unset, bool]):
         truepeak_lufs_lt (Union[Unset, float]):
         truepeak_lufs_lte (Union[Unset, float]):
+        video_id (Union[Unset, int]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -202,6 +207,7 @@ def sync_detailed(
         truepeak_lufs_isnull=truepeak_lufs_isnull,
         truepeak_lufs_lt=truepeak_lufs_lt,
         truepeak_lufs_lte=truepeak_lufs_lte,
+        video_id=video_id,
     )
 
     response = client.get_httpx_client().request(
@@ -232,6 +238,7 @@ def sync(
     truepeak_lufs_isnull: Union[Unset, bool] = UNSET,
     truepeak_lufs_lt: Union[Unset, float] = UNSET,
     truepeak_lufs_lte: Union[Unset, float] = UNSET,
+    video_id: Union[Unset, int] = UNSET,
 ) -> Optional[PaginatedVideoFileList]:
     """Video file list
 
@@ -240,7 +247,7 @@ def sync(
 
     HTTP parameters:
 
-    `video_id` - The (parent) video by ID
+    `video__id` - The (parent) video by ID
 
     `created_time` - when this file entry was created.
 
@@ -275,6 +282,7 @@ def sync(
         truepeak_lufs_isnull (Union[Unset, bool]):
         truepeak_lufs_lt (Union[Unset, float]):
         truepeak_lufs_lte (Union[Unset, float]):
+        video_id (Union[Unset, int]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -304,6 +312,7 @@ def sync(
         truepeak_lufs_isnull=truepeak_lufs_isnull,
         truepeak_lufs_lt=truepeak_lufs_lt,
         truepeak_lufs_lte=truepeak_lufs_lte,
+        video_id=video_id,
     ).parsed
 
 
@@ -328,6 +337,7 @@ async def asyncio_detailed(
     truepeak_lufs_isnull: Union[Unset, bool] = UNSET,
     truepeak_lufs_lt: Union[Unset, float] = UNSET,
     truepeak_lufs_lte: Union[Unset, float] = UNSET,
+    video_id: Union[Unset, int] = UNSET,
 ) -> Response[PaginatedVideoFileList]:
     """Video file list
 
@@ -336,7 +346,7 @@ async def asyncio_detailed(
 
     HTTP parameters:
 
-    `video_id` - The (parent) video by ID
+    `video__id` - The (parent) video by ID
 
     `created_time` - when this file entry was created.
 
@@ -371,6 +381,7 @@ async def asyncio_detailed(
         truepeak_lufs_isnull (Union[Unset, bool]):
         truepeak_lufs_lt (Union[Unset, float]):
         truepeak_lufs_lte (Union[Unset, float]):
+        video_id (Union[Unset, int]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -399,6 +410,7 @@ async def asyncio_detailed(
         truepeak_lufs_isnull=truepeak_lufs_isnull,
         truepeak_lufs_lt=truepeak_lufs_lt,
         truepeak_lufs_lte=truepeak_lufs_lte,
+        video_id=video_id,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -427,6 +439,7 @@ async def asyncio(
     truepeak_lufs_isnull: Union[Unset, bool] = UNSET,
     truepeak_lufs_lt: Union[Unset, float] = UNSET,
     truepeak_lufs_lte: Union[Unset, float] = UNSET,
+    video_id: Union[Unset, int] = UNSET,
 ) -> Optional[PaginatedVideoFileList]:
     """Video file list
 
@@ -435,7 +448,7 @@ async def asyncio(
 
     HTTP parameters:
 
-    `video_id` - The (parent) video by ID
+    `video__id` - The (parent) video by ID
 
     `created_time` - when this file entry was created.
 
@@ -470,6 +483,7 @@ async def asyncio(
         truepeak_lufs_isnull (Union[Unset, bool]):
         truepeak_lufs_lt (Union[Unset, float]):
         truepeak_lufs_lte (Union[Unset, float]):
+        video_id (Union[Unset, int]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -500,5 +514,6 @@ async def asyncio(
             truepeak_lufs_isnull=truepeak_lufs_isnull,
             truepeak_lufs_lt=truepeak_lufs_lt,
             truepeak_lufs_lte=truepeak_lufs_lte,
+            video_id=video_id,
         )
     ).parsed

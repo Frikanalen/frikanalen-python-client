@@ -60,7 +60,7 @@ def sync_detailed(
 
     HTTP parameters:
 
-    `video_id` - The (parent) video by ID
+    `video__id` - The (parent) video by ID
 
     `created_time` - when this file entry was created.
 
@@ -110,7 +110,7 @@ def sync(
 
     HTTP parameters:
 
-    `video_id` - The (parent) video by ID
+    `video__id` - The (parent) video by ID
 
     `created_time` - when this file entry was created.
 
@@ -155,7 +155,7 @@ async def asyncio_detailed(
 
     HTTP parameters:
 
-    `video_id` - The (parent) video by ID
+    `video__id` - The (parent) video by ID
 
     `created_time` - when this file entry was created.
 
@@ -203,7 +203,7 @@ async def asyncio(
 
     HTTP parameters:
 
-    `video_id` - The (parent) video by ID
+    `video__id` - The (parent) video by ID
 
     `created_time` - when this file entry was created.
 
