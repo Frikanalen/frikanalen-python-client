@@ -1,12 +1,16 @@
 import datetime
 from collections.abc import Mapping
-from typing import Any, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
+
+if TYPE_CHECKING:
+    from ..models.video import Video
+
 
 T = TypeVar("T", bound="VideoFile")
 
@@ -16,7 +20,7 @@ class VideoFile:
     """
     Attributes:
         id (int):
-        video (int):
+        video (Video):
         created_time (Union[None, datetime.datetime]): Time the video file was created
         format_ (str):
         filename (str):
@@ -25,7 +29,7 @@ class VideoFile:
     """
 
     id: int
-    video: int
+    video: "Video"
     created_time: Union[None, datetime.datetime]
     format_: str
     filename: str
@@ -36,7 +40,7 @@ class VideoFile:
     def to_dict(self) -> dict[str, Any]:
         id = self.id
 
-        video = self.video
+        video = self.video.to_dict()
 
         created_time: Union[None, str]
         if isinstance(self.created_time, datetime.datetime):
@@ -80,10 +84,12 @@ class VideoFile:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        from ..models.video import Video
+
         d = dict(src_dict)
         id = d.pop("id")
 
-        video = d.pop("video")
+        video = Video.from_dict(d.pop("video"))
 
         def _parse_created_time(data: object) -> Union[None, datetime.datetime]:
             if data is None:
