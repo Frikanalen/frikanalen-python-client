@@ -6,13 +6,14 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.video_file import VideoFile
+from ...models.video_file_request import VideoFileRequest
 from ...types import Response
 
 
 def _get_kwargs(
     id: str,
     *,
-    body: VideoFile,
+    body: VideoFileRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -53,13 +54,13 @@ def sync_detailed(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: VideoFile,
+    body: VideoFileRequest,
 ) -> Response[VideoFile]:
-    """Video file details
+    """Video file list and detail endpoint.
 
     Args:
         id (str):
-        body (VideoFile):
+        body (VideoFileRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -85,13 +86,13 @@ def sync(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: VideoFile,
+    body: VideoFileRequest,
 ) -> Optional[VideoFile]:
-    """Video file details
+    """Video file list and detail endpoint.
 
     Args:
         id (str):
-        body (VideoFile):
+        body (VideoFileRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -112,13 +113,13 @@ async def asyncio_detailed(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: VideoFile,
+    body: VideoFileRequest,
 ) -> Response[VideoFile]:
-    """Video file details
+    """Video file list and detail endpoint.
 
     Args:
         id (str):
-        body (VideoFile):
+        body (VideoFileRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -142,13 +143,13 @@ async def asyncio(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: VideoFile,
+    body: VideoFileRequest,
 ) -> Optional[VideoFile]:
-    """Video file details
+    """Video file list and detail endpoint.
 
     Args:
         id (str):
-        body (VideoFile):
+        body (VideoFileRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -6,12 +6,13 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.as_run import AsRun
+from ...models.as_run_request import AsRunRequest
 from ...types import Response
 
 
 def _get_kwargs(
     *,
-    body: AsRun,
+    body: AsRunRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -51,7 +52,7 @@ def _build_response(*, client: Union[AuthenticatedClient, Client], response: htt
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    body: AsRun,
+    body: AsRunRequest,
 ) -> Response[AsRun]:
     """AsRun model is a historic log over what was sent through playout.
 
@@ -66,7 +67,7 @@ def sync_detailed(
                  `?ordering=-played_at` to show newest items first.
 
     Args:
-        body (AsRun):
+        body (AsRunRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -90,7 +91,7 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    body: AsRun,
+    body: AsRunRequest,
 ) -> Optional[AsRun]:
     """AsRun model is a historic log over what was sent through playout.
 
@@ -105,7 +106,7 @@ def sync(
                  `?ordering=-played_at` to show newest items first.
 
     Args:
-        body (AsRun):
+        body (AsRunRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -124,7 +125,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    body: AsRun,
+    body: AsRunRequest,
 ) -> Response[AsRun]:
     """AsRun model is a historic log over what was sent through playout.
 
@@ -139,7 +140,7 @@ async def asyncio_detailed(
                  `?ordering=-played_at` to show newest items first.
 
     Args:
-        body (AsRun):
+        body (AsRunRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -161,7 +162,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    body: AsRun,
+    body: AsRunRequest,
 ) -> Optional[AsRun]:
     """AsRun model is a historic log over what was sent through playout.
 
@@ -176,7 +177,7 @@ async def asyncio(
                  `?ordering=-played_at` to show newest items first.
 
     Args:
-        body (AsRun):
+        body (AsRunRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

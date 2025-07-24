@@ -6,12 +6,13 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.bulletin import Bulletin
+from ...models.bulletin_request import BulletinRequest
 from ...types import Response
 
 
 def _get_kwargs(
     *,
-    body: Bulletin,
+    body: BulletinRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -51,11 +52,11 @@ def _build_response(*, client: Union[AuthenticatedClient, Client], response: htt
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    body: Bulletin,
+    body: BulletinRequest,
 ) -> Response[Bulletin]:
     """
     Args:
-        body (Bulletin):
+        body (BulletinRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -79,11 +80,11 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    body: Bulletin,
+    body: BulletinRequest,
 ) -> Optional[Bulletin]:
     """
     Args:
-        body (Bulletin):
+        body (BulletinRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -102,11 +103,11 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    body: Bulletin,
+    body: BulletinRequest,
 ) -> Response[Bulletin]:
     """
     Args:
-        body (Bulletin):
+        body (BulletinRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -128,11 +129,11 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    body: Bulletin,
+    body: BulletinRequest,
 ) -> Optional[Bulletin]:
     """
     Args:
-        body (Bulletin):
+        body (BulletinRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

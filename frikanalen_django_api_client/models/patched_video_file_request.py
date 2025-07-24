@@ -1,50 +1,35 @@
-import datetime
 from collections.abc import Mapping
 from typing import Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
-from dateutil.parser import isoparse
 
+from ..models.format_enum import FormatEnum
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="VideoFile")
+T = TypeVar("T", bound="PatchedVideoFileRequest")
 
 
 @_attrs_define
-class VideoFile:
+class PatchedVideoFileRequest:
     """
     Attributes:
-        id (int):
-        video (int):
-        created_time (Union[None, datetime.datetime]): Time the video file was created
-        format_ (str):
-        filename (str):
+        format_ (Union[Unset, FormatEnum]):
+        filename (Union[Unset, str]):
         integrated_lufs (Union[None, Unset, float]):
         truepeak_lufs (Union[None, Unset, float]):
     """
 
-    id: int
-    video: int
-    created_time: Union[None, datetime.datetime]
-    format_: str
-    filename: str
+    format_: Union[Unset, FormatEnum] = UNSET
+    filename: Union[Unset, str] = UNSET
     integrated_lufs: Union[None, Unset, float] = UNSET
     truepeak_lufs: Union[None, Unset, float] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        id = self.id
-
-        video = self.video
-
-        created_time: Union[None, str]
-        if isinstance(self.created_time, datetime.datetime):
-            created_time = self.created_time.isoformat()
-        else:
-            created_time = self.created_time
-
-        format_ = self.format_
+        format_: Union[Unset, str] = UNSET
+        if not isinstance(self.format_, Unset):
+            format_ = self.format_.value
 
         filename = self.filename
 
@@ -62,15 +47,11 @@ class VideoFile:
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "id": id,
-                "video": video,
-                "createdTime": created_time,
-                "format": format_,
-                "filename": filename,
-            }
-        )
+        field_dict.update({})
+        if format_ is not UNSET:
+            field_dict["format"] = format_
+        if filename is not UNSET:
+            field_dict["filename"] = filename
         if integrated_lufs is not UNSET:
             field_dict["integratedLufs"] = integrated_lufs
         if truepeak_lufs is not UNSET:
@@ -81,28 +62,14 @@ class VideoFile:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        id = d.pop("id")
+        _format_ = d.pop("format", UNSET)
+        format_: Union[Unset, FormatEnum]
+        if isinstance(_format_, Unset):
+            format_ = UNSET
+        else:
+            format_ = FormatEnum(_format_)
 
-        video = d.pop("video")
-
-        def _parse_created_time(data: object) -> Union[None, datetime.datetime]:
-            if data is None:
-                return data
-            try:
-                if not isinstance(data, str):
-                    raise TypeError()
-                created_time_type_0 = isoparse(data)
-
-                return created_time_type_0
-            except:  # noqa: E722
-                pass
-            return cast(Union[None, datetime.datetime], data)
-
-        created_time = _parse_created_time(d.pop("createdTime"))
-
-        format_ = d.pop("format")
-
-        filename = d.pop("filename")
+        filename = d.pop("filename", UNSET)
 
         def _parse_integrated_lufs(data: object) -> Union[None, Unset, float]:
             if data is None:
@@ -122,18 +89,15 @@ class VideoFile:
 
         truepeak_lufs = _parse_truepeak_lufs(d.pop("truepeakLufs", UNSET))
 
-        video_file = cls(
-            id=id,
-            video=video,
-            created_time=created_time,
+        patched_video_file_request = cls(
             format_=format_,
             filename=filename,
             integrated_lufs=integrated_lufs,
             truepeak_lufs=truepeak_lufs,
         )
 
-        video_file.additional_properties = d
-        return video_file
+        patched_video_file_request.additional_properties = d
+        return patched_video_file_request
 
     @property
     def additional_keys(self) -> list[str]:

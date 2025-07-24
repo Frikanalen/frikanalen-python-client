@@ -6,12 +6,13 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.video_file import VideoFile
+from ...models.video_file_request import VideoFileRequest
 from ...types import Response
 
 
 def _get_kwargs(
     *,
-    body: VideoFile,
+    body: VideoFileRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -51,33 +52,12 @@ def _build_response(*, client: Union[AuthenticatedClient, Client], response: htt
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    body: VideoFile,
+    body: VideoFileRequest,
 ) -> Response[VideoFile]:
-    """Video file list
-
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    """Video file list and detail endpoint.
 
     Args:
-        body (VideoFile):
+        body (VideoFileRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -101,33 +81,12 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    body: VideoFile,
+    body: VideoFileRequest,
 ) -> Optional[VideoFile]:
-    """Video file list
-
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    """Video file list and detail endpoint.
 
     Args:
-        body (VideoFile):
+        body (VideoFileRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -146,33 +105,12 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    body: VideoFile,
+    body: VideoFileRequest,
 ) -> Response[VideoFile]:
-    """Video file list
-
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    """Video file list and detail endpoint.
 
     Args:
-        body (VideoFile):
+        body (VideoFileRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -194,33 +132,12 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    body: VideoFile,
+    body: VideoFileRequest,
 ) -> Optional[VideoFile]:
-    """Video file list
-
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    """Video file list and detail endpoint.
 
     Args:
-        body (VideoFile):
+        body (VideoFileRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

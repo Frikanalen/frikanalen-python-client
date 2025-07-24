@@ -6,14 +6,14 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.as_run import AsRun
-from ...models.patched_as_run import PatchedAsRun
+from ...models.patched_as_run_request import PatchedAsRunRequest
 from ...types import Response
 
 
 def _get_kwargs(
     id: int,
     *,
-    body: PatchedAsRun,
+    body: PatchedAsRunRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -54,7 +54,7 @@ def sync_detailed(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedAsRun,
+    body: PatchedAsRunRequest,
 ) -> Response[AsRun]:
     """AsRun model is a historic log over what was sent through playout.
 
@@ -70,7 +70,7 @@ def sync_detailed(
 
     Args:
         id (int):
-        body (PatchedAsRun):
+        body (PatchedAsRunRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -96,7 +96,7 @@ def sync(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedAsRun,
+    body: PatchedAsRunRequest,
 ) -> Optional[AsRun]:
     """AsRun model is a historic log over what was sent through playout.
 
@@ -112,7 +112,7 @@ def sync(
 
     Args:
         id (int):
-        body (PatchedAsRun):
+        body (PatchedAsRunRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -133,7 +133,7 @@ async def asyncio_detailed(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedAsRun,
+    body: PatchedAsRunRequest,
 ) -> Response[AsRun]:
     """AsRun model is a historic log over what was sent through playout.
 
@@ -149,7 +149,7 @@ async def asyncio_detailed(
 
     Args:
         id (int):
-        body (PatchedAsRun):
+        body (PatchedAsRunRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -173,7 +173,7 @@ async def asyncio(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedAsRun,
+    body: PatchedAsRunRequest,
 ) -> Optional[AsRun]:
     """AsRun model is a historic log over what was sent through playout.
 
@@ -189,7 +189,7 @@ async def asyncio(
 
     Args:
         id (int):
-        body (PatchedAsRun):
+        body (PatchedAsRunRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

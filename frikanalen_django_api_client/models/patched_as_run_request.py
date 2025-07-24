@@ -8,14 +8,13 @@ from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="PatchedAsRun")
+T = TypeVar("T", bound="PatchedAsRunRequest")
 
 
 @_attrs_define
-class PatchedAsRun:
+class PatchedAsRunRequest:
     """
     Attributes:
-        id (Union[Unset, int]):
         video (Union[None, Unset, int]): Points to the Video which was played if there is one. Can be empty if something
             other than a video was played. The field is mutually exclusive with `programName`.
         program_name (Union[Unset, str]): A free form text input saying what was played. If `video` is set, this field
@@ -31,7 +30,6 @@ class PatchedAsRun:
             happening'.
     """
 
-    id: Union[Unset, int] = UNSET
     video: Union[None, Unset, int] = UNSET
     program_name: Union[Unset, str] = UNSET
     playout: Union[Unset, str] = UNSET
@@ -41,8 +39,6 @@ class PatchedAsRun:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        id = self.id
-
         video: Union[None, Unset, int]
         if isinstance(self.video, Unset):
             video = UNSET
@@ -68,8 +64,6 @@ class PatchedAsRun:
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if id is not UNSET:
-            field_dict["id"] = id
         if video is not UNSET:
             field_dict["video"] = video
         if program_name is not UNSET:
@@ -88,7 +82,6 @@ class PatchedAsRun:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        id = d.pop("id", UNSET)
 
         def _parse_video(data: object) -> Union[None, Unset, int]:
             if data is None:
@@ -121,8 +114,7 @@ class PatchedAsRun:
 
         out_ms = _parse_out_ms(d.pop("outMs", UNSET))
 
-        patched_as_run = cls(
-            id=id,
+        patched_as_run_request = cls(
             video=video,
             program_name=program_name,
             playout=playout,
@@ -131,8 +123,8 @@ class PatchedAsRun:
             out_ms=out_ms,
         )
 
-        patched_as_run.additional_properties = d
-        return patched_as_run
+        patched_as_run_request.additional_properties = d
+        return patched_as_run_request
 
     @property
     def additional_keys(self) -> list[str]:

@@ -8,46 +8,28 @@ from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="User")
+T = TypeVar("T", bound="UserRequest")
 
 
 @_attrs_define
-class User:
+class UserRequest:
     """
     Attributes:
-        id (int):
-        email (str):
-        date_joined (datetime.datetime):
-        is_staff (str):
-        organization_roles (str):
         first_name (Union[Unset, str]):
         last_name (Union[Unset, str]):
         date_of_birth (Union[None, Unset, datetime.date]):
         phone_number (Union[Unset, str]): Phone number at which this user can be reached
+        password (Union[Unset, str]):
     """
 
-    id: int
-    email: str
-    date_joined: datetime.datetime
-    is_staff: str
-    organization_roles: str
     first_name: Union[Unset, str] = UNSET
     last_name: Union[Unset, str] = UNSET
     date_of_birth: Union[None, Unset, datetime.date] = UNSET
     phone_number: Union[Unset, str] = UNSET
+    password: Union[Unset, str] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        id = self.id
-
-        email = self.email
-
-        date_joined = self.date_joined.isoformat()
-
-        is_staff = self.is_staff
-
-        organization_roles = self.organization_roles
-
         first_name = self.first_name
 
         last_name = self.last_name
@@ -62,17 +44,11 @@ class User:
 
         phone_number = self.phone_number
 
+        password = self.password
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "id": id,
-                "email": email,
-                "dateJoined": date_joined,
-                "isStaff": is_staff,
-                "organizationRoles": organization_roles,
-            }
-        )
+        field_dict.update({})
         if first_name is not UNSET:
             field_dict["firstName"] = first_name
         if last_name is not UNSET:
@@ -81,22 +57,14 @@ class User:
             field_dict["dateOfBirth"] = date_of_birth
         if phone_number is not UNSET:
             field_dict["phoneNumber"] = phone_number
+        if password is not UNSET:
+            field_dict["password"] = password
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        id = d.pop("id")
-
-        email = d.pop("email")
-
-        date_joined = isoparse(d.pop("dateJoined"))
-
-        is_staff = d.pop("isStaff")
-
-        organization_roles = d.pop("organizationRoles")
-
         first_name = d.pop("firstName", UNSET)
 
         last_name = d.pop("lastName", UNSET)
@@ -120,20 +88,18 @@ class User:
 
         phone_number = d.pop("phoneNumber", UNSET)
 
-        user = cls(
-            id=id,
-            email=email,
-            date_joined=date_joined,
-            is_staff=is_staff,
-            organization_roles=organization_roles,
+        password = d.pop("password", UNSET)
+
+        user_request = cls(
             first_name=first_name,
             last_name=last_name,
             date_of_birth=date_of_birth,
             phone_number=phone_number,
+            password=password,
         )
 
-        user.additional_properties = d
-        return user
+        user_request.additional_properties = d
+        return user_request
 
     @property
     def additional_keys(self) -> list[str]:

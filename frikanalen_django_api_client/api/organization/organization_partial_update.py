@@ -6,14 +6,14 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.organization import Organization
-from ...models.patched_organization import PatchedOrganization
+from ...models.patched_organization_request import PatchedOrganizationRequest
 from ...types import Response
 
 
 def _get_kwargs(
     id: str,
     *,
-    body: PatchedOrganization,
+    body: PatchedOrganizationRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -54,13 +54,13 @@ def sync_detailed(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedOrganization,
+    body: PatchedOrganizationRequest,
 ) -> Response[Organization]:
     """Video file details
 
     Args:
         id (str):
-        body (PatchedOrganization):
+        body (PatchedOrganizationRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -86,13 +86,13 @@ def sync(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedOrganization,
+    body: PatchedOrganizationRequest,
 ) -> Optional[Organization]:
     """Video file details
 
     Args:
         id (str):
-        body (PatchedOrganization):
+        body (PatchedOrganizationRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,13 +113,13 @@ async def asyncio_detailed(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedOrganization,
+    body: PatchedOrganizationRequest,
 ) -> Response[Organization]:
     """Video file details
 
     Args:
         id (str):
-        body (PatchedOrganization):
+        body (PatchedOrganizationRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -143,13 +143,13 @@ async def asyncio(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedOrganization,
+    body: PatchedOrganizationRequest,
 ) -> Optional[Organization]:
     """Video file details
 
     Args:
         id (str):
-        body (PatchedOrganization):
+        body (PatchedOrganizationRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

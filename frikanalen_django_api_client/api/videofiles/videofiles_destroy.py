@@ -42,7 +42,7 @@ def sync_detailed(
     *,
     client: AuthenticatedClient,
 ) -> Response[Any]:
-    """Video file details
+    """Video file list and detail endpoint.
 
     Args:
         id (str):
@@ -71,7 +71,7 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
 ) -> Response[Any]:
-    """Video file details
+    """Video file list and detail endpoint.
 
     Args:
         id (str):

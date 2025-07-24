@@ -6,14 +6,14 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.category import Category
-from ...models.patched_category import PatchedCategory
+from ...models.patched_category_request import PatchedCategoryRequest
 from ...types import Response
 
 
 def _get_kwargs(
     id: int,
     *,
-    body: PatchedCategory,
+    body: PatchedCategoryRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -54,12 +54,12 @@ def sync_detailed(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedCategory,
+    body: PatchedCategoryRequest,
 ) -> Response[Category]:
     """
     Args:
         id (int):
-        body (PatchedCategory):
+        body (PatchedCategoryRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -85,12 +85,12 @@ def sync(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedCategory,
+    body: PatchedCategoryRequest,
 ) -> Optional[Category]:
     """
     Args:
         id (int):
-        body (PatchedCategory):
+        body (PatchedCategoryRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -111,12 +111,12 @@ async def asyncio_detailed(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedCategory,
+    body: PatchedCategoryRequest,
 ) -> Response[Category]:
     """
     Args:
         id (int):
-        body (PatchedCategory):
+        body (PatchedCategoryRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -140,12 +140,12 @@ async def asyncio(
     id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedCategory,
+    body: PatchedCategoryRequest,
 ) -> Optional[Category]:
     """
     Args:
         id (int):
-        body (PatchedCategory):
+        body (PatchedCategoryRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

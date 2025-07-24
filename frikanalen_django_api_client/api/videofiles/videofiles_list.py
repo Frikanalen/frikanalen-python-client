@@ -14,7 +14,7 @@ def _get_kwargs(
     *,
     created_time_after: Union[Unset, datetime.datetime] = UNSET,
     created_time_before: Union[Unset, datetime.datetime] = UNSET,
-    format_fsname: Union[Unset, str] = UNSET,
+    format_: Union[Unset, int] = UNSET,
     integrated_lufs: Union[Unset, float] = UNSET,
     integrated_lufs_gt: Union[Unset, float] = UNSET,
     integrated_lufs_gte: Union[Unset, float] = UNSET,
@@ -44,7 +44,7 @@ def _get_kwargs(
         json_created_time_before = created_time_before.isoformat()
     params["created_time_before"] = json_created_time_before
 
-    params["format__fsname"] = format_fsname
+    params["format"] = format_
 
     params["integrated_lufs"] = integrated_lufs
 
@@ -118,7 +118,7 @@ def sync_detailed(
     client: AuthenticatedClient,
     created_time_after: Union[Unset, datetime.datetime] = UNSET,
     created_time_before: Union[Unset, datetime.datetime] = UNSET,
-    format_fsname: Union[Unset, str] = UNSET,
+    format_: Union[Unset, int] = UNSET,
     integrated_lufs: Union[Unset, float] = UNSET,
     integrated_lufs_gt: Union[Unset, float] = UNSET,
     integrated_lufs_gte: Union[Unset, float] = UNSET,
@@ -136,33 +136,12 @@ def sync_detailed(
     truepeak_lufs_lte: Union[Unset, float] = UNSET,
     video_id: Union[Unset, int] = UNSET,
 ) -> Response[PaginatedVideoFileList]:
-    """Video file list
-
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    """Video file list and detail endpoint.
 
     Args:
         created_time_after (Union[Unset, datetime.datetime]):
         created_time_before (Union[Unset, datetime.datetime]):
-        format_fsname (Union[Unset, str]):
+        format_ (Union[Unset, int]):
         integrated_lufs (Union[Unset, float]):
         integrated_lufs_gt (Union[Unset, float]):
         integrated_lufs_gte (Union[Unset, float]):
@@ -191,7 +170,7 @@ def sync_detailed(
     kwargs = _get_kwargs(
         created_time_after=created_time_after,
         created_time_before=created_time_before,
-        format_fsname=format_fsname,
+        format_=format_,
         integrated_lufs=integrated_lufs,
         integrated_lufs_gt=integrated_lufs_gt,
         integrated_lufs_gte=integrated_lufs_gte,
@@ -222,7 +201,7 @@ def sync(
     client: AuthenticatedClient,
     created_time_after: Union[Unset, datetime.datetime] = UNSET,
     created_time_before: Union[Unset, datetime.datetime] = UNSET,
-    format_fsname: Union[Unset, str] = UNSET,
+    format_: Union[Unset, int] = UNSET,
     integrated_lufs: Union[Unset, float] = UNSET,
     integrated_lufs_gt: Union[Unset, float] = UNSET,
     integrated_lufs_gte: Union[Unset, float] = UNSET,
@@ -240,33 +219,12 @@ def sync(
     truepeak_lufs_lte: Union[Unset, float] = UNSET,
     video_id: Union[Unset, int] = UNSET,
 ) -> Optional[PaginatedVideoFileList]:
-    """Video file list
-
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    """Video file list and detail endpoint.
 
     Args:
         created_time_after (Union[Unset, datetime.datetime]):
         created_time_before (Union[Unset, datetime.datetime]):
-        format_fsname (Union[Unset, str]):
+        format_ (Union[Unset, int]):
         integrated_lufs (Union[Unset, float]):
         integrated_lufs_gt (Union[Unset, float]):
         integrated_lufs_gte (Union[Unset, float]):
@@ -296,7 +254,7 @@ def sync(
         client=client,
         created_time_after=created_time_after,
         created_time_before=created_time_before,
-        format_fsname=format_fsname,
+        format_=format_,
         integrated_lufs=integrated_lufs,
         integrated_lufs_gt=integrated_lufs_gt,
         integrated_lufs_gte=integrated_lufs_gte,
@@ -321,7 +279,7 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     created_time_after: Union[Unset, datetime.datetime] = UNSET,
     created_time_before: Union[Unset, datetime.datetime] = UNSET,
-    format_fsname: Union[Unset, str] = UNSET,
+    format_: Union[Unset, int] = UNSET,
     integrated_lufs: Union[Unset, float] = UNSET,
     integrated_lufs_gt: Union[Unset, float] = UNSET,
     integrated_lufs_gte: Union[Unset, float] = UNSET,
@@ -339,33 +297,12 @@ async def asyncio_detailed(
     truepeak_lufs_lte: Union[Unset, float] = UNSET,
     video_id: Union[Unset, int] = UNSET,
 ) -> Response[PaginatedVideoFileList]:
-    """Video file list
-
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    """Video file list and detail endpoint.
 
     Args:
         created_time_after (Union[Unset, datetime.datetime]):
         created_time_before (Union[Unset, datetime.datetime]):
-        format_fsname (Union[Unset, str]):
+        format_ (Union[Unset, int]):
         integrated_lufs (Union[Unset, float]):
         integrated_lufs_gt (Union[Unset, float]):
         integrated_lufs_gte (Union[Unset, float]):
@@ -394,7 +331,7 @@ async def asyncio_detailed(
     kwargs = _get_kwargs(
         created_time_after=created_time_after,
         created_time_before=created_time_before,
-        format_fsname=format_fsname,
+        format_=format_,
         integrated_lufs=integrated_lufs,
         integrated_lufs_gt=integrated_lufs_gt,
         integrated_lufs_gte=integrated_lufs_gte,
@@ -423,7 +360,7 @@ async def asyncio(
     client: AuthenticatedClient,
     created_time_after: Union[Unset, datetime.datetime] = UNSET,
     created_time_before: Union[Unset, datetime.datetime] = UNSET,
-    format_fsname: Union[Unset, str] = UNSET,
+    format_: Union[Unset, int] = UNSET,
     integrated_lufs: Union[Unset, float] = UNSET,
     integrated_lufs_gt: Union[Unset, float] = UNSET,
     integrated_lufs_gte: Union[Unset, float] = UNSET,
@@ -441,33 +378,12 @@ async def asyncio(
     truepeak_lufs_lte: Union[Unset, float] = UNSET,
     video_id: Union[Unset, int] = UNSET,
 ) -> Optional[PaginatedVideoFileList]:
-    """Video file list
-
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    """Video file list and detail endpoint.
 
     Args:
         created_time_after (Union[Unset, datetime.datetime]):
         created_time_before (Union[Unset, datetime.datetime]):
-        format_fsname (Union[Unset, str]):
+        format_ (Union[Unset, int]):
         integrated_lufs (Union[Unset, float]):
         integrated_lufs_gt (Union[Unset, float]):
         integrated_lufs_gte (Union[Unset, float]):
@@ -498,7 +414,7 @@ async def asyncio(
             client=client,
             created_time_after=created_time_after,
             created_time_before=created_time_before,
-            format_fsname=format_fsname,
+            format_=format_,
             integrated_lufs=integrated_lufs,
             integrated_lufs_gt=integrated_lufs_gt,
             integrated_lufs_gte=integrated_lufs_gte,

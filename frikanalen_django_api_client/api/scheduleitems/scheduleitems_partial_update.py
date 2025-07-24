@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.patched_scheduleitem_read import PatchedScheduleitemRead
+from ...models.patched_scheduleitem_read_request import PatchedScheduleitemReadRequest
 from ...models.scheduleitem_read import ScheduleitemRead
 from ...types import Response
 
@@ -13,7 +13,7 @@ from ...types import Response
 def _get_kwargs(
     id: str,
     *,
-    body: PatchedScheduleitemRead,
+    body: PatchedScheduleitemReadRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -58,13 +58,13 @@ def sync_detailed(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedScheduleitemRead,
+    body: PatchedScheduleitemReadRequest,
 ) -> Response[ScheduleitemRead]:
     """Schedule item details
 
     Args:
         id (str):
-        body (PatchedScheduleitemRead):
+        body (PatchedScheduleitemReadRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -90,13 +90,13 @@ def sync(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedScheduleitemRead,
+    body: PatchedScheduleitemReadRequest,
 ) -> Optional[ScheduleitemRead]:
     """Schedule item details
 
     Args:
         id (str):
-        body (PatchedScheduleitemRead):
+        body (PatchedScheduleitemReadRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -117,13 +117,13 @@ async def asyncio_detailed(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedScheduleitemRead,
+    body: PatchedScheduleitemReadRequest,
 ) -> Response[ScheduleitemRead]:
     """Schedule item details
 
     Args:
         id (str):
-        body (PatchedScheduleitemRead):
+        body (PatchedScheduleitemReadRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -147,13 +147,13 @@ async def asyncio(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedScheduleitemRead,
+    body: PatchedScheduleitemReadRequest,
 ) -> Optional[ScheduleitemRead]:
     """Schedule item details
 
     Args:
         id (str):
-        body (PatchedScheduleitemRead):
+        body (PatchedScheduleitemReadRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

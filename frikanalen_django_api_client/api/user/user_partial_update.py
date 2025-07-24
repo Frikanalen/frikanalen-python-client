@@ -5,14 +5,14 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.patched_user import PatchedUser
+from ...models.patched_user_request import PatchedUserRequest
 from ...models.user import User
 from ...types import Response
 
 
 def _get_kwargs(
     *,
-    body: PatchedUser,
+    body: PatchedUserRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -52,12 +52,12 @@ def _build_response(*, client: Union[AuthenticatedClient, Client], response: htt
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    body: PatchedUser,
+    body: PatchedUserRequest,
 ) -> Response[User]:
     """User details - used to manage your own user
 
     Args:
-        body (PatchedUser):
+        body (PatchedUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -81,12 +81,12 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    body: PatchedUser,
+    body: PatchedUserRequest,
 ) -> Optional[User]:
     """User details - used to manage your own user
 
     Args:
-        body (PatchedUser):
+        body (PatchedUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -105,12 +105,12 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    body: PatchedUser,
+    body: PatchedUserRequest,
 ) -> Response[User]:
     """User details - used to manage your own user
 
     Args:
-        body (PatchedUser):
+        body (PatchedUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -132,12 +132,12 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    body: PatchedUser,
+    body: PatchedUserRequest,
 ) -> Optional[User]:
     """User details - used to manage your own user
 
     Args:
-        body (PatchedUser):
+        body (PatchedUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

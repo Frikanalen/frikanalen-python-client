@@ -1,52 +1,35 @@
-import datetime
 from collections.abc import Mapping
 from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
-from dateutil.parser import isoparse
 
-T = TypeVar("T", bound="NewUser")
+T = TypeVar("T", bound="BulletinRequest")
 
 
 @_attrs_define
-class NewUser:
+class BulletinRequest:
     """
     Attributes:
-        id (int):
-        email (str):
-        first_name (str):
-        last_name (str):
-        date_of_birth (datetime.date):
+        heading (str):
+        text (str):
     """
 
-    id: int
-    email: str
-    first_name: str
-    last_name: str
-    date_of_birth: datetime.date
+    heading: str
+    text: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        id = self.id
+        heading = self.heading
 
-        email = self.email
-
-        first_name = self.first_name
-
-        last_name = self.last_name
-
-        date_of_birth = self.date_of_birth.isoformat()
+        text = self.text
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "id": id,
-                "email": email,
-                "firstName": first_name,
-                "lastName": last_name,
-                "dateOfBirth": date_of_birth,
+                "heading": heading,
+                "text": text,
             }
         )
 
@@ -55,26 +38,17 @@ class NewUser:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        id = d.pop("id")
+        heading = d.pop("heading")
 
-        email = d.pop("email")
+        text = d.pop("text")
 
-        first_name = d.pop("firstName")
-
-        last_name = d.pop("lastName")
-
-        date_of_birth = isoparse(d.pop("dateOfBirth")).date()
-
-        new_user = cls(
-            id=id,
-            email=email,
-            first_name=first_name,
-            last_name=last_name,
-            date_of_birth=date_of_birth,
+        bulletin_request = cls(
+            heading=heading,
+            text=text,
         )
 
-        new_user.additional_properties = d
-        return new_user
+        bulletin_request.additional_properties = d
+        return bulletin_request
 
     @property
     def additional_keys(self) -> list[str]:

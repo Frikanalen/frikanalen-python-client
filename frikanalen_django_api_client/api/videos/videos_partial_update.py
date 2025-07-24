@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.patched_video import PatchedVideo
+from ...models.patched_video_request import PatchedVideoRequest
 from ...models.video import Video
 from ...types import Response
 
@@ -13,7 +13,7 @@ from ...types import Response
 def _get_kwargs(
     id: str,
     *,
-    body: PatchedVideo,
+    body: PatchedVideoRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -54,13 +54,13 @@ def sync_detailed(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedVideo,
+    body: PatchedVideoRequest,
 ) -> Response[Video]:
     """Video details
 
     Args:
         id (str):
-        body (PatchedVideo):
+        body (PatchedVideoRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -86,13 +86,13 @@ def sync(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedVideo,
+    body: PatchedVideoRequest,
 ) -> Optional[Video]:
     """Video details
 
     Args:
         id (str):
-        body (PatchedVideo):
+        body (PatchedVideoRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -113,13 +113,13 @@ async def asyncio_detailed(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedVideo,
+    body: PatchedVideoRequest,
 ) -> Response[Video]:
     """Video details
 
     Args:
         id (str):
-        body (PatchedVideo):
+        body (PatchedVideoRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -143,13 +143,13 @@ async def asyncio(
     id: str,
     *,
     client: AuthenticatedClient,
-    body: PatchedVideo,
+    body: PatchedVideoRequest,
 ) -> Optional[Video]:
     """Video details
 
     Args:
         id (str):
-        body (PatchedVideo):
+        body (PatchedVideoRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

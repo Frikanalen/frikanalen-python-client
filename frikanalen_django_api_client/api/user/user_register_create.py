@@ -6,12 +6,13 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.new_user import NewUser
+from ...models.new_user_request import NewUserRequest
 from ...types import Response
 
 
 def _get_kwargs(
     *,
-    body: NewUser,
+    body: NewUserRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -51,11 +52,11 @@ def _build_response(*, client: Union[AuthenticatedClient, Client], response: htt
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    body: NewUser,
+    body: NewUserRequest,
 ) -> Response[NewUser]:
     """
     Args:
-        body (NewUser):
+        body (NewUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -79,11 +80,11 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    body: NewUser,
+    body: NewUserRequest,
 ) -> Optional[NewUser]:
     """
     Args:
-        body (NewUser):
+        body (NewUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -102,11 +103,11 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    body: NewUser,
+    body: NewUserRequest,
 ) -> Response[NewUser]:
     """
     Args:
-        body (NewUser):
+        body (NewUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -128,11 +129,11 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    body: NewUser,
+    body: NewUserRequest,
 ) -> Optional[NewUser]:
     """
     Args:
-        body (NewUser):
+        body (NewUserRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
