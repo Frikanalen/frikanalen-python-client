@@ -55,27 +55,6 @@ def sync_detailed(
 ) -> Response[VideoFile]:
     """Video file list
 
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
-
     Args:
         body (VideoFile):
 
@@ -105,27 +84,6 @@ def sync(
 ) -> Optional[VideoFile]:
     """Video file list
 
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
-
     Args:
         body (VideoFile):
 
@@ -149,27 +107,6 @@ async def asyncio_detailed(
     body: VideoFile,
 ) -> Response[VideoFile]:
     """Video file list
-
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
 
     Args:
         body (VideoFile):
@@ -197,27 +134,6 @@ async def asyncio(
     body: VideoFile,
 ) -> Optional[VideoFile]:
     """Video file list
-
-    Query parameters
-    ----------------
-
-    HTTP parameters:
-
-    `video__id` - The (parent) video by ID
-
-    `created_time` - when this file entry was created.
-
-    `format__fsname` - the fileformat fsname for this file.
-
-    `integrated_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `truepeak_lufs` (includes __gt, __gte, __lt, __lte, __isnull) the overall loudness of the file.
-
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
 
     Args:
         body (VideoFile):

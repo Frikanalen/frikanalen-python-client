@@ -30,13 +30,11 @@ def _get_kwargs(
     offset: Union[Unset, int] = UNSET,
     ordering: Union[Unset, str] = UNSET,
     organization: Union[Unset, int] = UNSET,
-    page_size: Union[Unset, int] = 50,
     played_count_web: Union[Unset, int] = UNSET,
     played_count_web_gt: Union[Unset, int] = UNSET,
     played_count_web_gte: Union[Unset, int] = UNSET,
     played_count_web_lt: Union[Unset, int] = UNSET,
     played_count_web_lte: Union[Unset, int] = UNSET,
-    proper_import: Union[Unset, bool] = UNSET,
     publish_on_web: Union[Unset, bool] = UNSET,
     q: Union[Unset, str] = UNSET,
     ref_url: Union[Unset, str] = UNSET,
@@ -95,8 +93,6 @@ def _get_kwargs(
 
     params["organization"] = organization
 
-    params["page_size"] = page_size
-
     params["played_count_web"] = played_count_web
 
     params["played_count_web__gt"] = played_count_web_gt
@@ -106,8 +102,6 @@ def _get_kwargs(
     params["played_count_web__lt"] = played_count_web_lt
 
     params["played_count_web__lte"] = played_count_web_lte
-
-    params["proper_import"] = proper_import
 
     params["publish_on_web"] = publish_on_web
 
@@ -195,13 +189,11 @@ def sync_detailed(
     offset: Union[Unset, int] = UNSET,
     ordering: Union[Unset, str] = UNSET,
     organization: Union[Unset, int] = UNSET,
-    page_size: Union[Unset, int] = 50,
     played_count_web: Union[Unset, int] = UNSET,
     played_count_web_gt: Union[Unset, int] = UNSET,
     played_count_web_gte: Union[Unset, int] = UNSET,
     played_count_web_lt: Union[Unset, int] = UNSET,
     played_count_web_lte: Union[Unset, int] = UNSET,
-    proper_import: Union[Unset, bool] = UNSET,
     publish_on_web: Union[Unset, bool] = UNSET,
     q: Union[Unset, str] = UNSET,
     ref_url: Union[Unset, str] = UNSET,
@@ -212,13 +204,7 @@ def sync_detailed(
     uploaded_time_after: Union[Unset, datetime.datetime] = UNSET,
     uploaded_time_before: Union[Unset, datetime.datetime] = UNSET,
 ) -> Response[PaginatedVideoList]:
-    """List and create videos.
-
-
-        Provides a paginated and filterable list of videos.
-
-        Use query parameters to refine results.
-
+    """List of videos
 
     Args:
         categories_name_icontains (Union[Unset, list[str]]):
@@ -239,13 +225,11 @@ def sync_detailed(
         offset (Union[Unset, int]):
         ordering (Union[Unset, str]):
         organization (Union[Unset, int]):
-        page_size (Union[Unset, int]):  Default: 50.
         played_count_web (Union[Unset, int]):
         played_count_web_gt (Union[Unset, int]):
         played_count_web_gte (Union[Unset, int]):
         played_count_web_lt (Union[Unset, int]):
         played_count_web_lte (Union[Unset, int]):
-        proper_import (Union[Unset, bool]):
         publish_on_web (Union[Unset, bool]):
         q (Union[Unset, str]):
         ref_url (Union[Unset, str]):
@@ -283,13 +267,11 @@ def sync_detailed(
         offset=offset,
         ordering=ordering,
         organization=organization,
-        page_size=page_size,
         played_count_web=played_count_web,
         played_count_web_gt=played_count_web_gt,
         played_count_web_gte=played_count_web_gte,
         played_count_web_lt=played_count_web_lt,
         played_count_web_lte=played_count_web_lte,
-        proper_import=proper_import,
         publish_on_web=publish_on_web,
         q=q,
         ref_url=ref_url,
@@ -329,13 +311,11 @@ def sync(
     offset: Union[Unset, int] = UNSET,
     ordering: Union[Unset, str] = UNSET,
     organization: Union[Unset, int] = UNSET,
-    page_size: Union[Unset, int] = 50,
     played_count_web: Union[Unset, int] = UNSET,
     played_count_web_gt: Union[Unset, int] = UNSET,
     played_count_web_gte: Union[Unset, int] = UNSET,
     played_count_web_lt: Union[Unset, int] = UNSET,
     played_count_web_lte: Union[Unset, int] = UNSET,
-    proper_import: Union[Unset, bool] = UNSET,
     publish_on_web: Union[Unset, bool] = UNSET,
     q: Union[Unset, str] = UNSET,
     ref_url: Union[Unset, str] = UNSET,
@@ -346,13 +326,7 @@ def sync(
     uploaded_time_after: Union[Unset, datetime.datetime] = UNSET,
     uploaded_time_before: Union[Unset, datetime.datetime] = UNSET,
 ) -> Optional[PaginatedVideoList]:
-    """List and create videos.
-
-
-        Provides a paginated and filterable list of videos.
-
-        Use query parameters to refine results.
-
+    """List of videos
 
     Args:
         categories_name_icontains (Union[Unset, list[str]]):
@@ -373,13 +347,11 @@ def sync(
         offset (Union[Unset, int]):
         ordering (Union[Unset, str]):
         organization (Union[Unset, int]):
-        page_size (Union[Unset, int]):  Default: 50.
         played_count_web (Union[Unset, int]):
         played_count_web_gt (Union[Unset, int]):
         played_count_web_gte (Union[Unset, int]):
         played_count_web_lt (Union[Unset, int]):
         played_count_web_lte (Union[Unset, int]):
-        proper_import (Union[Unset, bool]):
         publish_on_web (Union[Unset, bool]):
         q (Union[Unset, str]):
         ref_url (Union[Unset, str]):
@@ -418,13 +390,11 @@ def sync(
         offset=offset,
         ordering=ordering,
         organization=organization,
-        page_size=page_size,
         played_count_web=played_count_web,
         played_count_web_gt=played_count_web_gt,
         played_count_web_gte=played_count_web_gte,
         played_count_web_lt=played_count_web_lt,
         played_count_web_lte=played_count_web_lte,
-        proper_import=proper_import,
         publish_on_web=publish_on_web,
         q=q,
         ref_url=ref_url,
@@ -458,13 +428,11 @@ async def asyncio_detailed(
     offset: Union[Unset, int] = UNSET,
     ordering: Union[Unset, str] = UNSET,
     organization: Union[Unset, int] = UNSET,
-    page_size: Union[Unset, int] = 50,
     played_count_web: Union[Unset, int] = UNSET,
     played_count_web_gt: Union[Unset, int] = UNSET,
     played_count_web_gte: Union[Unset, int] = UNSET,
     played_count_web_lt: Union[Unset, int] = UNSET,
     played_count_web_lte: Union[Unset, int] = UNSET,
-    proper_import: Union[Unset, bool] = UNSET,
     publish_on_web: Union[Unset, bool] = UNSET,
     q: Union[Unset, str] = UNSET,
     ref_url: Union[Unset, str] = UNSET,
@@ -475,13 +443,7 @@ async def asyncio_detailed(
     uploaded_time_after: Union[Unset, datetime.datetime] = UNSET,
     uploaded_time_before: Union[Unset, datetime.datetime] = UNSET,
 ) -> Response[PaginatedVideoList]:
-    """List and create videos.
-
-
-        Provides a paginated and filterable list of videos.
-
-        Use query parameters to refine results.
-
+    """List of videos
 
     Args:
         categories_name_icontains (Union[Unset, list[str]]):
@@ -502,13 +464,11 @@ async def asyncio_detailed(
         offset (Union[Unset, int]):
         ordering (Union[Unset, str]):
         organization (Union[Unset, int]):
-        page_size (Union[Unset, int]):  Default: 50.
         played_count_web (Union[Unset, int]):
         played_count_web_gt (Union[Unset, int]):
         played_count_web_gte (Union[Unset, int]):
         played_count_web_lt (Union[Unset, int]):
         played_count_web_lte (Union[Unset, int]):
-        proper_import (Union[Unset, bool]):
         publish_on_web (Union[Unset, bool]):
         q (Union[Unset, str]):
         ref_url (Union[Unset, str]):
@@ -546,13 +506,11 @@ async def asyncio_detailed(
         offset=offset,
         ordering=ordering,
         organization=organization,
-        page_size=page_size,
         played_count_web=played_count_web,
         played_count_web_gt=played_count_web_gt,
         played_count_web_gte=played_count_web_gte,
         played_count_web_lt=played_count_web_lt,
         played_count_web_lte=played_count_web_lte,
-        proper_import=proper_import,
         publish_on_web=publish_on_web,
         q=q,
         ref_url=ref_url,
@@ -590,13 +548,11 @@ async def asyncio(
     offset: Union[Unset, int] = UNSET,
     ordering: Union[Unset, str] = UNSET,
     organization: Union[Unset, int] = UNSET,
-    page_size: Union[Unset, int] = 50,
     played_count_web: Union[Unset, int] = UNSET,
     played_count_web_gt: Union[Unset, int] = UNSET,
     played_count_web_gte: Union[Unset, int] = UNSET,
     played_count_web_lt: Union[Unset, int] = UNSET,
     played_count_web_lte: Union[Unset, int] = UNSET,
-    proper_import: Union[Unset, bool] = UNSET,
     publish_on_web: Union[Unset, bool] = UNSET,
     q: Union[Unset, str] = UNSET,
     ref_url: Union[Unset, str] = UNSET,
@@ -607,13 +563,7 @@ async def asyncio(
     uploaded_time_after: Union[Unset, datetime.datetime] = UNSET,
     uploaded_time_before: Union[Unset, datetime.datetime] = UNSET,
 ) -> Optional[PaginatedVideoList]:
-    """List and create videos.
-
-
-        Provides a paginated and filterable list of videos.
-
-        Use query parameters to refine results.
-
+    """List of videos
 
     Args:
         categories_name_icontains (Union[Unset, list[str]]):
@@ -634,13 +584,11 @@ async def asyncio(
         offset (Union[Unset, int]):
         ordering (Union[Unset, str]):
         organization (Union[Unset, int]):
-        page_size (Union[Unset, int]):  Default: 50.
         played_count_web (Union[Unset, int]):
         played_count_web_gt (Union[Unset, int]):
         played_count_web_gte (Union[Unset, int]):
         played_count_web_lt (Union[Unset, int]):
         played_count_web_lte (Union[Unset, int]):
-        proper_import (Union[Unset, bool]):
         publish_on_web (Union[Unset, bool]):
         q (Union[Unset, str]):
         ref_url (Union[Unset, str]):
@@ -680,13 +628,11 @@ async def asyncio(
             offset=offset,
             ordering=ordering,
             organization=organization,
-            page_size=page_size,
             played_count_web=played_count_web,
             played_count_web_gt=played_count_web_gt,
             played_count_web_gte=played_count_web_gte,
             played_count_web_lt=played_count_web_lt,
             played_count_web_lte=played_count_web_lte,
-            proper_import=proper_import,
             publish_on_web=publish_on_web,
             q=q,
             ref_url=ref_url,
