@@ -55,6 +55,51 @@ def sync_detailed(
 ) -> Response[VideoCreate]:
     """List of videos
 
+    Query parameters
+    ----------------
+
+    `q` - Free search query.
+
+    `page_size` - How many items per page. If set to 0 it will list
+                  all items.  Default is 50 items.
+
+    `ordering` - Order results by specified field.  Prepend a minus for
+                 descending order.  I.e. `?ordering=-id`.
+
+    `creator__email` - the email of the video's creator
+
+    `framerate` - the framerate in hz * 1000
+
+    `has_tono_records` - if the tono flag is set (true/false)
+
+    `is_filler` - if this is a filler video (true/false)
+
+    `name` - the exact name/title of the video
+
+    `name__icontains` - substring is part of name/title of the video
+
+    `organization` - Frikanalen ID of organization behind video
+
+    `played_count_web` - the number of times this video was played on the web
+
+    `played_count_web__gt` - greater than
+
+    `played_count_web__gte` - greater than or equal
+
+    `played_count_web__lt`  - less than
+
+    `played_count_web__lte` - less than or equal
+
+    `publish_on_web` - if this video is published ont the web (true/false)
+
+    `proper_import` - if the uploaded video was properly imported (true/false)
+
+    `ref_url` - the exact reference url
+
+    `ref_url__startswith` - the reference url start with this string
+
+    `ref_url__icontains` - the reference url contain this string
+
     Args:
         body (VideoCreate):
 
@@ -84,6 +129,51 @@ def sync(
 ) -> Optional[VideoCreate]:
     """List of videos
 
+    Query parameters
+    ----------------
+
+    `q` - Free search query.
+
+    `page_size` - How many items per page. If set to 0 it will list
+                  all items.  Default is 50 items.
+
+    `ordering` - Order results by specified field.  Prepend a minus for
+                 descending order.  I.e. `?ordering=-id`.
+
+    `creator__email` - the email of the video's creator
+
+    `framerate` - the framerate in hz * 1000
+
+    `has_tono_records` - if the tono flag is set (true/false)
+
+    `is_filler` - if this is a filler video (true/false)
+
+    `name` - the exact name/title of the video
+
+    `name__icontains` - substring is part of name/title of the video
+
+    `organization` - Frikanalen ID of organization behind video
+
+    `played_count_web` - the number of times this video was played on the web
+
+    `played_count_web__gt` - greater than
+
+    `played_count_web__gte` - greater than or equal
+
+    `played_count_web__lt`  - less than
+
+    `played_count_web__lte` - less than or equal
+
+    `publish_on_web` - if this video is published ont the web (true/false)
+
+    `proper_import` - if the uploaded video was properly imported (true/false)
+
+    `ref_url` - the exact reference url
+
+    `ref_url__startswith` - the reference url start with this string
+
+    `ref_url__icontains` - the reference url contain this string
+
     Args:
         body (VideoCreate):
 
@@ -107,6 +197,51 @@ async def asyncio_detailed(
     body: VideoCreate,
 ) -> Response[VideoCreate]:
     """List of videos
+
+    Query parameters
+    ----------------
+
+    `q` - Free search query.
+
+    `page_size` - How many items per page. If set to 0 it will list
+                  all items.  Default is 50 items.
+
+    `ordering` - Order results by specified field.  Prepend a minus for
+                 descending order.  I.e. `?ordering=-id`.
+
+    `creator__email` - the email of the video's creator
+
+    `framerate` - the framerate in hz * 1000
+
+    `has_tono_records` - if the tono flag is set (true/false)
+
+    `is_filler` - if this is a filler video (true/false)
+
+    `name` - the exact name/title of the video
+
+    `name__icontains` - substring is part of name/title of the video
+
+    `organization` - Frikanalen ID of organization behind video
+
+    `played_count_web` - the number of times this video was played on the web
+
+    `played_count_web__gt` - greater than
+
+    `played_count_web__gte` - greater than or equal
+
+    `played_count_web__lt`  - less than
+
+    `played_count_web__lte` - less than or equal
+
+    `publish_on_web` - if this video is published ont the web (true/false)
+
+    `proper_import` - if the uploaded video was properly imported (true/false)
+
+    `ref_url` - the exact reference url
+
+    `ref_url__startswith` - the reference url start with this string
+
+    `ref_url__icontains` - the reference url contain this string
 
     Args:
         body (VideoCreate):
@@ -134,6 +269,51 @@ async def asyncio(
     body: VideoCreate,
 ) -> Optional[VideoCreate]:
     """List of videos
+
+    Query parameters
+    ----------------
+
+    `q` - Free search query.
+
+    `page_size` - How many items per page. If set to 0 it will list
+                  all items.  Default is 50 items.
+
+    `ordering` - Order results by specified field.  Prepend a minus for
+                 descending order.  I.e. `?ordering=-id`.
+
+    `creator__email` - the email of the video's creator
+
+    `framerate` - the framerate in hz * 1000
+
+    `has_tono_records` - if the tono flag is set (true/false)
+
+    `is_filler` - if this is a filler video (true/false)
+
+    `name` - the exact name/title of the video
+
+    `name__icontains` - substring is part of name/title of the video
+
+    `organization` - Frikanalen ID of organization behind video
+
+    `played_count_web` - the number of times this video was played on the web
+
+    `played_count_web__gt` - greater than
+
+    `played_count_web__gte` - greater than or equal
+
+    `played_count_web__lt`  - less than
+
+    `played_count_web__lte` - less than or equal
+
+    `publish_on_web` - if this video is published ont the web (true/false)
+
+    `proper_import` - if the uploaded video was properly imported (true/false)
+
+    `ref_url` - the exact reference url
+
+    `ref_url__startswith` - the reference url start with this string
+
+    `ref_url__icontains` - the reference url contain this string
 
     Args:
         body (VideoCreate):
