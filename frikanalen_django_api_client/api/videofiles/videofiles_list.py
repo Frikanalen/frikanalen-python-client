@@ -76,7 +76,7 @@ def _get_kwargs(
 
     params["truepeak_lufs__lte"] = truepeak_lufs_lte
 
-    params["video__id"] = video_id
+    params["video_id"] = video_id
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
