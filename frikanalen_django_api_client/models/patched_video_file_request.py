@@ -15,7 +15,15 @@ class PatchedVideoFileRequest:
     """
     Attributes:
         video_id (Union[Unset, int]):
-        format_ (Union[Unset, FormatEnum]):
+        format_ (Union[Unset, FormatEnum]): * `large_thumb` - large_thumb
+            * `broadcast` - broadcast
+            * `vc1` - vc1
+            * `med_thumb` - med_thumb
+            * `small_thumb` - small_thumb
+            * `original` - original
+            * `theora` - theora
+            * `srt` - srt
+            * `cloudflare_id` - cloudflare_id
         filename (Union[Unset, str]):
         integrated_lufs (Union[None, Unset, float]):
         truepeak_lufs (Union[None, Unset, float]):

@@ -15,7 +15,15 @@ class VideoFileRequest:
     """
     Attributes:
         video_id (int):
-        format_ (FormatEnum):
+        format_ (FormatEnum): * `large_thumb` - large_thumb
+            * `broadcast` - broadcast
+            * `vc1` - vc1
+            * `med_thumb` - med_thumb
+            * `small_thumb` - small_thumb
+            * `original` - original
+            * `theora` - theora
+            * `srt` - srt
+            * `cloudflare_id` - cloudflare_id
         filename (str):
         integrated_lufs (Union[None, Unset, float]):
         truepeak_lufs (Union[None, Unset, float]):

@@ -45,6 +45,7 @@ from .video_file import VideoFile
 from .video_file_request import VideoFileRequest
 from .video_request import VideoRequest
 from .video_upload_token import VideoUploadToken
+from .videofiles_list_format_fsname import VideofilesListFormatFsname
 
 __all__ = (
     "AsRun",
@@ -90,6 +91,7 @@ __all__ = (
     "VideoCreateRequest",
     "VideoFile",
     "VideoFileRequest",
+    "VideofilesListFormatFsname",
     "VideoRequest",
     "VideoUploadToken",
 )
