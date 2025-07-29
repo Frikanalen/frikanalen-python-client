@@ -14,7 +14,7 @@ T = TypeVar("T", bound="VideoFileRequest")
 class VideoFileRequest:
     """
     Attributes:
-        video_id (int):
+        video (int):
         format_ (FormatEnum): * `large_thumb` - large_thumb
             * `broadcast` - broadcast
             * `vc1` - vc1
@@ -29,7 +29,7 @@ class VideoFileRequest:
         truepeak_lufs (Union[None, Unset, float]):
     """
 
-    video_id: int
+    video: int
     format_: FormatEnum
     filename: str
     integrated_lufs: Union[None, Unset, float] = UNSET
@@ -37,7 +37,7 @@ class VideoFileRequest:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        video_id = self.video_id
+        video = self.video
 
         format_ = self.format_.value
 
@@ -59,7 +59,7 @@ class VideoFileRequest:
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "videoId": video_id,
+                "video": video,
                 "format": format_,
                 "filename": filename,
             }
@@ -74,7 +74,7 @@ class VideoFileRequest:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        video_id = d.pop("videoId")
+        video = d.pop("video")
 
         format_ = FormatEnum(d.pop("format"))
 
@@ -99,7 +99,7 @@ class VideoFileRequest:
         truepeak_lufs = _parse_truepeak_lufs(d.pop("truepeakLufs", UNSET))
 
         video_file_request = cls(
-            video_id=video_id,
+            video=video,
             format_=format_,
             filename=filename,
             integrated_lufs=integrated_lufs,

@@ -1,12 +1,16 @@
 import datetime
 from collections.abc import Mapping
-from typing import Any, TypeVar, Union, cast
+from typing import TYPE_CHECKING, Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
+
+if TYPE_CHECKING:
+    from ..models.video_create_files import VideoCreateFiles
+
 
 T = TypeVar("T", bound="VideoCreate")
 
@@ -17,7 +21,7 @@ class VideoCreate:
     Attributes:
         id (int):
         name (str):
-        files (str):
+        files (VideoCreateFiles):
         categories (list[str]):
         framerate (int): Framerate of master video in thousands / second
         created_time (Union[None, datetime.datetime]): Time the program record was created
@@ -39,7 +43,7 @@ class VideoCreate:
 
     id: int
     name: str
-    files: str
+    files: "VideoCreateFiles"
     categories: list[str]
     framerate: int
     created_time: Union[None, datetime.datetime]
@@ -64,7 +68,7 @@ class VideoCreate:
 
         name = self.name
 
-        files = self.files
+        files = self.files.to_dict()
 
         categories = self.categories
 
@@ -164,12 +168,14 @@ class VideoCreate:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        from ..models.video_create_files import VideoCreateFiles
+
         d = dict(src_dict)
         id = d.pop("id")
 
         name = d.pop("name")
 
-        files = d.pop("files")
+        files = VideoCreateFiles.from_dict(d.pop("files"))
 
         categories = cast(list[str], d.pop("categories"))
 

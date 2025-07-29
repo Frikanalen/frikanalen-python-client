@@ -14,7 +14,7 @@ T = TypeVar("T", bound="PatchedVideoFileRequest")
 class PatchedVideoFileRequest:
     """
     Attributes:
-        video_id (Union[Unset, int]):
+        video (Union[Unset, int]):
         format_ (Union[Unset, FormatEnum]): * `large_thumb` - large_thumb
             * `broadcast` - broadcast
             * `vc1` - vc1
@@ -29,7 +29,7 @@ class PatchedVideoFileRequest:
         truepeak_lufs (Union[None, Unset, float]):
     """
 
-    video_id: Union[Unset, int] = UNSET
+    video: Union[Unset, int] = UNSET
     format_: Union[Unset, FormatEnum] = UNSET
     filename: Union[Unset, str] = UNSET
     integrated_lufs: Union[None, Unset, float] = UNSET
@@ -37,7 +37,7 @@ class PatchedVideoFileRequest:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        video_id = self.video_id
+        video = self.video
 
         format_: Union[Unset, str] = UNSET
         if not isinstance(self.format_, Unset):
@@ -60,8 +60,8 @@ class PatchedVideoFileRequest:
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if video_id is not UNSET:
-            field_dict["videoId"] = video_id
+        if video is not UNSET:
+            field_dict["video"] = video
         if format_ is not UNSET:
             field_dict["format"] = format_
         if filename is not UNSET:
@@ -76,7 +76,7 @@ class PatchedVideoFileRequest:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        video_id = d.pop("videoId", UNSET)
+        video = d.pop("video", UNSET)
 
         _format_ = d.pop("format", UNSET)
         format_: Union[Unset, FormatEnum]
@@ -106,7 +106,7 @@ class PatchedVideoFileRequest:
         truepeak_lufs = _parse_truepeak_lufs(d.pop("truepeakLufs", UNSET))
 
         patched_video_file_request = cls(
-            video_id=video_id,
+            video=video,
             format_=format_,
             filename=filename,
             integrated_lufs=integrated_lufs,

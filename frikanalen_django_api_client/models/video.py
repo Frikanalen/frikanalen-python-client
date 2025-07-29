@@ -10,6 +10,7 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.organization import Organization
+    from ..models.video_files import VideoFiles
 
 
 T = TypeVar("T", bound="Video")
@@ -21,7 +22,7 @@ class Video:
     Attributes:
         id (int):
         name (str):
-        files (str):
+        files (VideoFiles):
         organization (Organization):
         categories (list[str]):
         framerate (int): Framerate of master video in thousands / second
@@ -43,7 +44,7 @@ class Video:
 
     id: int
     name: str
-    files: str
+    files: "VideoFiles"
     organization: "Organization"
     categories: list[str]
     framerate: int
@@ -68,7 +69,7 @@ class Video:
 
         name = self.name
 
-        files = self.files
+        files = self.files.to_dict()
 
         organization = self.organization.to_dict()
 
@@ -168,13 +169,14 @@ class Video:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.organization import Organization
+        from ..models.video_files import VideoFiles
 
         d = dict(src_dict)
         id = d.pop("id")
 
         name = d.pop("name")
 
-        files = d.pop("files")
+        files = VideoFiles.from_dict(d.pop("files"))
 
         organization = Organization.from_dict(d.pop("organization"))
 

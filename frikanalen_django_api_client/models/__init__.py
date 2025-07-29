@@ -2,6 +2,8 @@
 
 from .as_run import AsRun
 from .as_run_request import AsRunRequest
+from .auth_token import AuthToken
+from .auth_token_request import AuthTokenRequest
 from .bulletin import Bulletin
 from .bulletin_request import BulletinRequest
 from .category import Category
@@ -40,9 +42,11 @@ from .user import User
 from .user_request import UserRequest
 from .video import Video
 from .video_create import VideoCreate
+from .video_create_files import VideoCreateFiles
 from .video_create_request import VideoCreateRequest
 from .video_file import VideoFile
 from .video_file_request import VideoFileRequest
+from .video_files import VideoFiles
 from .video_request import VideoRequest
 from .video_upload_token import VideoUploadToken
 from .videofiles_list_format_fsname import VideofilesListFormatFsname
@@ -50,6 +54,8 @@ from .videofiles_list_format_fsname import VideofilesListFormatFsname
 __all__ = (
     "AsRun",
     "AsRunRequest",
+    "AuthToken",
+    "AuthTokenRequest",
     "Bulletin",
     "BulletinRequest",
     "Category",
@@ -88,9 +94,11 @@ __all__ = (
     "UserRequest",
     "Video",
     "VideoCreate",
+    "VideoCreateFiles",
     "VideoCreateRequest",
     "VideoFile",
     "VideoFileRequest",
+    "VideoFiles",
     "VideofilesListFormatFsname",
     "VideoRequest",
     "VideoUploadToken",
