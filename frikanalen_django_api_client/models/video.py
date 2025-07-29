@@ -34,7 +34,7 @@ class Video:
         description (Union[None, Unset, str]):
         creator (Union[Unset, str]):
         duration (Union[Unset, str]):
-        proper_import (Union[Unset, bool]):
+        proper_import (Union[Unset, bool]): Has the video been properly imported?
         has_tono_records (Union[Unset, bool]):
         publish_on_web (Union[Unset, bool]):
         is_filler (Union[Unset, bool]): You still have the editorial responsibility.  Only affect videos from members.
