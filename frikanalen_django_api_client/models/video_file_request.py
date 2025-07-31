@@ -4,7 +4,6 @@ from typing import Any, TypeVar, Union, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.format_enum import FormatEnum
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="VideoFileRequest")
@@ -15,22 +14,14 @@ class VideoFileRequest:
     """
     Attributes:
         video (int):
-        format_ (FormatEnum): * `large_thumb` - large_thumb
-            * `broadcast` - broadcast
-            * `vc1` - vc1
-            * `med_thumb` - med_thumb
-            * `small_thumb` - small_thumb
-            * `original` - original
-            * `theora` - theora
-            * `srt` - srt
-            * `cloudflare_id` - cloudflare_id
+        format_ (int):
         filename (str):
         integrated_lufs (Union[None, Unset, float]):
         truepeak_lufs (Union[None, Unset, float]):
     """
 
     video: int
-    format_: FormatEnum
+    format_: int
     filename: str
     integrated_lufs: Union[None, Unset, float] = UNSET
     truepeak_lufs: Union[None, Unset, float] = UNSET
@@ -39,7 +30,7 @@ class VideoFileRequest:
     def to_dict(self) -> dict[str, Any]:
         video = self.video
 
-        format_ = self.format_.value
+        format_ = self.format_
 
         filename = self.filename
 
@@ -76,7 +67,7 @@ class VideoFileRequest:
         d = dict(src_dict)
         video = d.pop("video")
 
-        format_ = FormatEnum(d.pop("format"))
+        format_ = d.pop("format")
 
         filename = d.pop("filename")
 

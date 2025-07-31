@@ -6,7 +6,6 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 from dateutil.parser import isoparse
 
-from ..models.format_enum import FormatEnum
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="VideoFile")
@@ -19,15 +18,7 @@ class VideoFile:
         id (int):
         created_time (Union[None, datetime.datetime]): Time the video file was created
         video (int):
-        format_ (FormatEnum): * `large_thumb` - large_thumb
-            * `broadcast` - broadcast
-            * `vc1` - vc1
-            * `med_thumb` - med_thumb
-            * `small_thumb` - small_thumb
-            * `original` - original
-            * `theora` - theora
-            * `srt` - srt
-            * `cloudflare_id` - cloudflare_id
+        format_ (int):
         filename (str):
         integrated_lufs (Union[None, Unset, float]):
         truepeak_lufs (Union[None, Unset, float]):
@@ -36,7 +27,7 @@ class VideoFile:
     id: int
     created_time: Union[None, datetime.datetime]
     video: int
-    format_: FormatEnum
+    format_: int
     filename: str
     integrated_lufs: Union[None, Unset, float] = UNSET
     truepeak_lufs: Union[None, Unset, float] = UNSET
@@ -53,7 +44,7 @@ class VideoFile:
 
         video = self.video
 
-        format_ = self.format_.value
+        format_ = self.format_
 
         filename = self.filename
 
@@ -109,7 +100,7 @@ class VideoFile:
 
         video = d.pop("video")
 
-        format_ = FormatEnum(d.pop("format"))
+        format_ = d.pop("format")
 
         filename = d.pop("filename")
 

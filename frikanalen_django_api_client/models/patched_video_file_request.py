@@ -4,7 +4,6 @@ from typing import Any, TypeVar, Union, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.format_enum import FormatEnum
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="PatchedVideoFileRequest")
@@ -15,22 +14,14 @@ class PatchedVideoFileRequest:
     """
     Attributes:
         video (Union[Unset, int]):
-        format_ (Union[Unset, FormatEnum]): * `large_thumb` - large_thumb
-            * `broadcast` - broadcast
-            * `vc1` - vc1
-            * `med_thumb` - med_thumb
-            * `small_thumb` - small_thumb
-            * `original` - original
-            * `theora` - theora
-            * `srt` - srt
-            * `cloudflare_id` - cloudflare_id
+        format_ (Union[Unset, int]):
         filename (Union[Unset, str]):
         integrated_lufs (Union[None, Unset, float]):
         truepeak_lufs (Union[None, Unset, float]):
     """
 
     video: Union[Unset, int] = UNSET
-    format_: Union[Unset, FormatEnum] = UNSET
+    format_: Union[Unset, int] = UNSET
     filename: Union[Unset, str] = UNSET
     integrated_lufs: Union[None, Unset, float] = UNSET
     truepeak_lufs: Union[None, Unset, float] = UNSET
@@ -39,9 +30,7 @@ class PatchedVideoFileRequest:
     def to_dict(self) -> dict[str, Any]:
         video = self.video
 
-        format_: Union[Unset, str] = UNSET
-        if not isinstance(self.format_, Unset):
-            format_ = self.format_.value
+        format_ = self.format_
 
         filename = self.filename
 
@@ -78,12 +67,7 @@ class PatchedVideoFileRequest:
         d = dict(src_dict)
         video = d.pop("video", UNSET)
 
-        _format_ = d.pop("format", UNSET)
-        format_: Union[Unset, FormatEnum]
-        if isinstance(_format_, Unset):
-            format_ = UNSET
-        else:
-            format_ = FormatEnum(_format_)
+        format_ = d.pop("format", UNSET)
 
         filename = d.pop("filename", UNSET)
 
