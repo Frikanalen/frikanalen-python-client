@@ -18,7 +18,7 @@ def _get_kwargs(
 
     _kwargs: dict[str, Any] = {
         "method": "post",
-        "url": "/api/obtain-token-v2",
+        "url": "/api/obtain-token",
     }
 
     _kwargs["json"] = body.to_dict()
