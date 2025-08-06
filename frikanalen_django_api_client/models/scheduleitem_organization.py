@@ -1,51 +1,40 @@
-import datetime
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
-from dateutil.parser import isoparse
 
-if TYPE_CHECKING:
-    from ..models.scheduleitem_video import ScheduleitemVideo
-
-
-T = TypeVar("T", bound="ScheduleitemRead")
+T = TypeVar("T", bound="ScheduleitemOrganization")
 
 
 @_attrs_define
-class ScheduleitemRead:
+class ScheduleitemOrganization:
     """
     Attributes:
         id (int):
-        video (ScheduleitemVideo):
-        starttime (datetime.datetime):
-        endtime (datetime.datetime):
+        name (str):
+        description (str):
     """
 
     id: int
-    video: "ScheduleitemVideo"
-    starttime: datetime.datetime
-    endtime: datetime.datetime
+    name: str
+    description: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         id = self.id
 
-        video = self.video.to_dict()
+        name = self.name
 
-        starttime = self.starttime.isoformat()
-
-        endtime = self.endtime.isoformat()
+        description = self.description
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
                 "id": id,
-                "video": video,
-                "starttime": starttime,
-                "endtime": endtime,
+                "name": name,
+                "description": description,
             }
         )
 
@@ -53,26 +42,21 @@ class ScheduleitemRead:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.scheduleitem_video import ScheduleitemVideo
-
         d = dict(src_dict)
         id = d.pop("id")
 
-        video = ScheduleitemVideo.from_dict(d.pop("video"))
+        name = d.pop("name")
 
-        starttime = isoparse(d.pop("starttime"))
+        description = d.pop("description")
 
-        endtime = isoparse(d.pop("endtime"))
-
-        scheduleitem_read = cls(
+        scheduleitem_organization = cls(
             id=id,
-            video=video,
-            starttime=starttime,
-            endtime=endtime,
+            name=name,
+            description=description,
         )
 
-        scheduleitem_read.additional_properties = d
-        return scheduleitem_read
+        scheduleitem_organization.additional_properties = d
+        return scheduleitem_organization
 
     @property
     def additional_keys(self) -> list[str]:

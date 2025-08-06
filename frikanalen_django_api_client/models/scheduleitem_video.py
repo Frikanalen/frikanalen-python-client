@@ -7,7 +7,7 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.organization import Organization
+    from ..models.scheduleitem_organization import ScheduleitemOrganization
 
 
 T = TypeVar("T", bound="ScheduleitemVideo")
@@ -19,22 +19,18 @@ class ScheduleitemVideo:
     Attributes:
         id (int):
         name (str):
-        organization (Organization):
+        organization (ScheduleitemOrganization):
         categories (list[str]):
         header (Union[None, Unset, str]):
         description (Union[None, Unset, str]):
-        creator (Union[Unset, str]):
-        duration (Union[Unset, str]):
     """
 
     id: int
     name: str
-    organization: "Organization"
+    organization: "ScheduleitemOrganization"
     categories: list[str]
     header: Union[None, Unset, str] = UNSET
     description: Union[None, Unset, str] = UNSET
-    creator: Union[Unset, str] = UNSET
-    duration: Union[Unset, str] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -58,10 +54,6 @@ class ScheduleitemVideo:
         else:
             description = self.description
 
-        creator = self.creator
-
-        duration = self.duration
-
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -76,23 +68,19 @@ class ScheduleitemVideo:
             field_dict["header"] = header
         if description is not UNSET:
             field_dict["description"] = description
-        if creator is not UNSET:
-            field_dict["creator"] = creator
-        if duration is not UNSET:
-            field_dict["duration"] = duration
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.organization import Organization
+        from ..models.scheduleitem_organization import ScheduleitemOrganization
 
         d = dict(src_dict)
         id = d.pop("id")
 
         name = d.pop("name")
 
-        organization = Organization.from_dict(d.pop("organization"))
+        organization = ScheduleitemOrganization.from_dict(d.pop("organization"))
 
         categories = cast(list[str], d.pop("categories"))
 
@@ -114,10 +102,6 @@ class ScheduleitemVideo:
 
         description = _parse_description(d.pop("description", UNSET))
 
-        creator = d.pop("creator", UNSET)
-
-        duration = d.pop("duration", UNSET)
-
         scheduleitem_video = cls(
             id=id,
             name=name,
@@ -125,8 +109,6 @@ class ScheduleitemVideo:
             categories=categories,
             header=header,
             description=description,
-            creator=creator,
-            duration=duration,
         )
 
         scheduleitem_video.additional_properties = d

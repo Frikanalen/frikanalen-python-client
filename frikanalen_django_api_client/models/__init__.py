@@ -8,6 +8,8 @@ from .bulletin import Bulletin
 from .bulletin_request import BulletinRequest
 from .category import Category
 from .category_request import CategoryRequest
+from .login import Login
+from .login_request import LoginRequest
 from .new_user import NewUser
 from .new_user_request import NewUserRequest
 from .organization import Organization
@@ -22,15 +24,15 @@ from .patched_as_run_request import PatchedAsRunRequest
 from .patched_bulletin_request import PatchedBulletinRequest
 from .patched_category_request import PatchedCategoryRequest
 from .patched_organization_request import PatchedOrganizationRequest
-from .patched_scheduleitem_read_request import PatchedScheduleitemReadRequest
+from .patched_scheduleitem_modify_request import PatchedScheduleitemModifyRequest
 from .patched_user_request import PatchedUserRequest
 from .patched_video_file_request import PatchedVideoFileRequest
 from .patched_video_request import PatchedVideoRequest
 from .scheduleitem_modify import ScheduleitemModify
 from .scheduleitem_modify_request import ScheduleitemModifyRequest
+from .scheduleitem_organization import ScheduleitemOrganization
 from .scheduleitem_read import ScheduleitemRead
 from .scheduleitem_video import ScheduleitemVideo
-from .scheduleitem_video_request import ScheduleitemVideoRequest
 from .schedulereason_enum import SchedulereasonEnum
 from .schema_retrieve_format import SchemaRetrieveFormat
 from .schema_retrieve_lang import SchemaRetrieveLang
@@ -57,6 +59,8 @@ __all__ = (
     "BulletinRequest",
     "Category",
     "CategoryRequest",
+    "Login",
+    "LoginRequest",
     "NewUser",
     "NewUserRequest",
     "Organization",
@@ -71,15 +75,15 @@ __all__ = (
     "PatchedBulletinRequest",
     "PatchedCategoryRequest",
     "PatchedOrganizationRequest",
-    "PatchedScheduleitemReadRequest",
+    "PatchedScheduleitemModifyRequest",
     "PatchedUserRequest",
     "PatchedVideoFileRequest",
     "PatchedVideoRequest",
     "ScheduleitemModify",
     "ScheduleitemModifyRequest",
+    "ScheduleitemOrganization",
     "ScheduleitemRead",
     "ScheduleitemVideo",
-    "ScheduleitemVideoRequest",
     "SchedulereasonEnum",
     "SchemaRetrieveFormat",
     "SchemaRetrieveLang",

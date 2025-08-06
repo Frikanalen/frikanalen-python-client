@@ -11,17 +11,26 @@ from ...types import UNSET, Response, Unset
 
 def _get_kwargs(
     *,
+    date: Union[Unset, str] = UNSET,
+    days: Union[Unset, float] = UNSET,
     limit: Union[Unset, int] = UNSET,
     offset: Union[Unset, int] = UNSET,
     ordering: Union[Unset, str] = UNSET,
+    surrounding: Union[Unset, bool] = UNSET,
 ) -> dict[str, Any]:
     params: dict[str, Any] = {}
+
+    params["date"] = date
+
+    params["days"] = days
 
     params["limit"] = limit
 
     params["offset"] = offset
 
     params["ordering"] = ordering
+
+    params["surrounding"] = surrounding
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
@@ -61,33 +70,33 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
+    date: Union[Unset, str] = UNSET,
+    days: Union[Unset, float] = UNSET,
     limit: Union[Unset, int] = UNSET,
     offset: Union[Unset, int] = UNSET,
     ordering: Union[Unset, str] = UNSET,
+    surrounding: Union[Unset, bool] = UNSET,
 ) -> Response[PaginatedScheduleitemReadList]:
-    r"""Video events schedule
+    """Video events schedule
 
+    list:
     Query parameters
     ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
 
-    `date` - Date expressed in the format YYYY-MM-DD (eg. 2020-12-31), or
-             \"today\".  Default is today, Europe/Oslo time.
+    `days`: Number of days. Defaults to 1.
 
-    `days` - Number of days schedule requested. Default is 7 days.
+    `surrounding`: Include event before and after the window.
 
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `surrounding` - Fetch the first event before and after the given
-                    period
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
+        date (Union[Unset, str]):
+        days (Union[Unset, float]):
         limit (Union[Unset, int]):
         offset (Union[Unset, int]):
         ordering (Union[Unset, str]):
+        surrounding (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -98,9 +107,12 @@ def sync_detailed(
     """
 
     kwargs = _get_kwargs(
+        date=date,
+        days=days,
         limit=limit,
         offset=offset,
         ordering=ordering,
+        surrounding=surrounding,
     )
 
     response = client.get_httpx_client().request(
@@ -113,33 +125,33 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
+    date: Union[Unset, str] = UNSET,
+    days: Union[Unset, float] = UNSET,
     limit: Union[Unset, int] = UNSET,
     offset: Union[Unset, int] = UNSET,
     ordering: Union[Unset, str] = UNSET,
+    surrounding: Union[Unset, bool] = UNSET,
 ) -> Optional[PaginatedScheduleitemReadList]:
-    r"""Video events schedule
+    """Video events schedule
 
+    list:
     Query parameters
     ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
 
-    `date` - Date expressed in the format YYYY-MM-DD (eg. 2020-12-31), or
-             \"today\".  Default is today, Europe/Oslo time.
+    `days`: Number of days. Defaults to 1.
 
-    `days` - Number of days schedule requested. Default is 7 days.
+    `surrounding`: Include event before and after the window.
 
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `surrounding` - Fetch the first event before and after the given
-                    period
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
+        date (Union[Unset, str]):
+        days (Union[Unset, float]):
         limit (Union[Unset, int]):
         offset (Union[Unset, int]):
         ordering (Union[Unset, str]):
+        surrounding (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -151,42 +163,45 @@ def sync(
 
     return sync_detailed(
         client=client,
+        date=date,
+        days=days,
         limit=limit,
         offset=offset,
         ordering=ordering,
+        surrounding=surrounding,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
+    date: Union[Unset, str] = UNSET,
+    days: Union[Unset, float] = UNSET,
     limit: Union[Unset, int] = UNSET,
     offset: Union[Unset, int] = UNSET,
     ordering: Union[Unset, str] = UNSET,
+    surrounding: Union[Unset, bool] = UNSET,
 ) -> Response[PaginatedScheduleitemReadList]:
-    r"""Video events schedule
+    """Video events schedule
 
+    list:
     Query parameters
     ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
 
-    `date` - Date expressed in the format YYYY-MM-DD (eg. 2020-12-31), or
-             \"today\".  Default is today, Europe/Oslo time.
+    `days`: Number of days. Defaults to 1.
 
-    `days` - Number of days schedule requested. Default is 7 days.
+    `surrounding`: Include event before and after the window.
 
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `surrounding` - Fetch the first event before and after the given
-                    period
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
+        date (Union[Unset, str]):
+        days (Union[Unset, float]):
         limit (Union[Unset, int]):
         offset (Union[Unset, int]):
         ordering (Union[Unset, str]):
+        surrounding (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -197,9 +212,12 @@ async def asyncio_detailed(
     """
 
     kwargs = _get_kwargs(
+        date=date,
+        days=days,
         limit=limit,
         offset=offset,
         ordering=ordering,
+        surrounding=surrounding,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -210,33 +228,33 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
+    date: Union[Unset, str] = UNSET,
+    days: Union[Unset, float] = UNSET,
     limit: Union[Unset, int] = UNSET,
     offset: Union[Unset, int] = UNSET,
     ordering: Union[Unset, str] = UNSET,
+    surrounding: Union[Unset, bool] = UNSET,
 ) -> Optional[PaginatedScheduleitemReadList]:
-    r"""Video events schedule
+    """Video events schedule
 
+    list:
     Query parameters
     ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
 
-    `date` - Date expressed in the format YYYY-MM-DD (eg. 2020-12-31), or
-             \"today\".  Default is today, Europe/Oslo time.
+    `days`: Number of days. Defaults to 1.
 
-    `days` - Number of days schedule requested. Default is 7 days.
+    `surrounding`: Include event before and after the window.
 
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `surrounding` - Fetch the first event before and after the given
-                    period
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
+        date (Union[Unset, str]):
+        days (Union[Unset, float]):
         limit (Union[Unset, int]):
         offset (Union[Unset, int]):
         ordering (Union[Unset, str]):
+        surrounding (Union[Unset, bool]):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -249,8 +267,11 @@ async def asyncio(
     return (
         await asyncio_detailed(
             client=client,
+            date=date,
+            days=days,
             limit=limit,
             offset=offset,
             ordering=ordering,
+            surrounding=surrounding,
         )
     ).parsed

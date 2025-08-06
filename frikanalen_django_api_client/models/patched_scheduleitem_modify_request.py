@@ -1,6 +1,6 @@
 import datetime
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar, Union
+from typing import Any, TypeVar, Union, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -9,18 +9,14 @@ from dateutil.parser import isoparse
 from ..models.schedulereason_enum import SchedulereasonEnum
 from ..types import UNSET, Unset
 
-if TYPE_CHECKING:
-    from ..models.scheduleitem_video_request import ScheduleitemVideoRequest
-
-
-T = TypeVar("T", bound="PatchedScheduleitemReadRequest")
+T = TypeVar("T", bound="PatchedScheduleitemModifyRequest")
 
 
 @_attrs_define
-class PatchedScheduleitemReadRequest:
+class PatchedScheduleitemModifyRequest:
     """
     Attributes:
-        video (Union[Unset, ScheduleitemVideoRequest]):
+        video (Union[None, Unset, int]):
         schedulereason (Union[Unset, SchedulereasonEnum]): * `1` - Legacy
             * `2` - Administrative
             * `3` - User
@@ -30,16 +26,18 @@ class PatchedScheduleitemReadRequest:
         duration (Union[Unset, str]):
     """
 
-    video: Union[Unset, "ScheduleitemVideoRequest"] = UNSET
+    video: Union[None, Unset, int] = UNSET
     schedulereason: Union[Unset, SchedulereasonEnum] = UNSET
     starttime: Union[Unset, datetime.datetime] = UNSET
     duration: Union[Unset, str] = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        video: Union[Unset, dict[str, Any]] = UNSET
-        if not isinstance(self.video, Unset):
-            video = self.video.to_dict()
+        video: Union[None, Unset, int]
+        if isinstance(self.video, Unset):
+            video = UNSET
+        else:
+            video = self.video
 
         schedulereason: Union[Unset, int] = UNSET
         if not isinstance(self.schedulereason, Unset):
@@ -67,15 +65,16 @@ class PatchedScheduleitemReadRequest:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.scheduleitem_video_request import ScheduleitemVideoRequest
-
         d = dict(src_dict)
-        _video = d.pop("video", UNSET)
-        video: Union[Unset, ScheduleitemVideoRequest]
-        if isinstance(_video, Unset):
-            video = UNSET
-        else:
-            video = ScheduleitemVideoRequest.from_dict(_video)
+
+        def _parse_video(data: object) -> Union[None, Unset, int]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(Union[None, Unset, int], data)
+
+        video = _parse_video(d.pop("video", UNSET))
 
         _schedulereason = d.pop("schedulereason", UNSET)
         schedulereason: Union[Unset, SchedulereasonEnum]
@@ -93,15 +92,15 @@ class PatchedScheduleitemReadRequest:
 
         duration = d.pop("duration", UNSET)
 
-        patched_scheduleitem_read_request = cls(
+        patched_scheduleitem_modify_request = cls(
             video=video,
             schedulereason=schedulereason,
             starttime=starttime,
             duration=duration,
         )
 
-        patched_scheduleitem_read_request.additional_properties = d
-        return patched_scheduleitem_read_request
+        patched_scheduleitem_modify_request.additional_properties = d
+        return patched_scheduleitem_modify_request
 
     @property
     def additional_keys(self) -> list[str]:

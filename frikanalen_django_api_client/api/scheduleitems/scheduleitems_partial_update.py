@@ -5,21 +5,21 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.patched_scheduleitem_read_request import PatchedScheduleitemReadRequest
-from ...models.scheduleitem_read import ScheduleitemRead
+from ...models.patched_scheduleitem_modify_request import PatchedScheduleitemModifyRequest
+from ...models.scheduleitem_modify import ScheduleitemModify
 from ...types import Response
 
 
 def _get_kwargs(
-    id: str,
+    id: int,
     *,
-    body: PatchedScheduleitemReadRequest,
+    body: PatchedScheduleitemModifyRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
     _kwargs: dict[str, Any] = {
         "method": "patch",
-        "url": f"/api/scheduleitems/{id}",
+        "url": f"/api/scheduleitems/{id}/",
     }
 
     _kwargs["json"] = body.to_dict()
@@ -32,9 +32,9 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Optional[ScheduleitemRead]:
+) -> Optional[ScheduleitemModify]:
     if response.status_code == 200:
-        response_200 = ScheduleitemRead.from_dict(response.json())
+        response_200 = ScheduleitemModify.from_dict(response.json())
 
         return response_200
     if client.raise_on_unexpected_status:
@@ -45,7 +45,7 @@ def _parse_response(
 
 def _build_response(
     *, client: Union[AuthenticatedClient, Client], response: httpx.Response
-) -> Response[ScheduleitemRead]:
+) -> Response[ScheduleitemModify]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -55,23 +55,34 @@ def _build_response(
 
 
 def sync_detailed(
-    id: str,
+    id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedScheduleitemReadRequest,
-) -> Response[ScheduleitemRead]:
-    """Schedule item details
+    body: PatchedScheduleitemModifyRequest,
+) -> Response[ScheduleitemModify]:
+    """Video events schedule
+
+    list:
+    Query parameters
+    ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
+
+    `days`: Number of days. Defaults to 1.
+
+    `surrounding`: Include event before and after the window.
+
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
-        id (str):
-        body (PatchedScheduleitemReadRequest):
+        id (int):
+        body (PatchedScheduleitemModifyRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ScheduleitemRead]
+        Response[ScheduleitemModify]
     """
 
     kwargs = _get_kwargs(
@@ -87,23 +98,34 @@ def sync_detailed(
 
 
 def sync(
-    id: str,
+    id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedScheduleitemReadRequest,
-) -> Optional[ScheduleitemRead]:
-    """Schedule item details
+    body: PatchedScheduleitemModifyRequest,
+) -> Optional[ScheduleitemModify]:
+    """Video events schedule
+
+    list:
+    Query parameters
+    ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
+
+    `days`: Number of days. Defaults to 1.
+
+    `surrounding`: Include event before and after the window.
+
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
-        id (str):
-        body (PatchedScheduleitemReadRequest):
+        id (int):
+        body (PatchedScheduleitemModifyRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ScheduleitemRead
+        ScheduleitemModify
     """
 
     return sync_detailed(
@@ -114,23 +136,34 @@ def sync(
 
 
 async def asyncio_detailed(
-    id: str,
+    id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedScheduleitemReadRequest,
-) -> Response[ScheduleitemRead]:
-    """Schedule item details
+    body: PatchedScheduleitemModifyRequest,
+) -> Response[ScheduleitemModify]:
+    """Video events schedule
+
+    list:
+    Query parameters
+    ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
+
+    `days`: Number of days. Defaults to 1.
+
+    `surrounding`: Include event before and after the window.
+
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
-        id (str):
-        body (PatchedScheduleitemReadRequest):
+        id (int):
+        body (PatchedScheduleitemModifyRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ScheduleitemRead]
+        Response[ScheduleitemModify]
     """
 
     kwargs = _get_kwargs(
@@ -144,23 +177,34 @@ async def asyncio_detailed(
 
 
 async def asyncio(
-    id: str,
+    id: int,
     *,
     client: AuthenticatedClient,
-    body: PatchedScheduleitemReadRequest,
-) -> Optional[ScheduleitemRead]:
-    """Schedule item details
+    body: PatchedScheduleitemModifyRequest,
+) -> Optional[ScheduleitemModify]:
+    """Video events schedule
+
+    list:
+    Query parameters
+    ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
+
+    `days`: Number of days. Defaults to 1.
+
+    `surrounding`: Include event before and after the window.
+
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
-        id (str):
-        body (PatchedScheduleitemReadRequest):
+        id (int):
+        body (PatchedScheduleitemModifyRequest):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ScheduleitemRead
+        ScheduleitemModify
     """
 
     return (

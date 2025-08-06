@@ -58,24 +58,18 @@ def sync_detailed(
     client: AuthenticatedClient,
     body: ScheduleitemModifyRequest,
 ) -> Response[ScheduleitemModify]:
-    r"""Video events schedule
+    """Video events schedule
 
+    list:
     Query parameters
     ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
 
-    `date` - Date expressed in the format YYYY-MM-DD (eg. 2020-12-31), or
-             \"today\".  Default is today, Europe/Oslo time.
+    `days`: Number of days. Defaults to 1.
 
-    `days` - Number of days schedule requested. Default is 7 days.
+    `surrounding`: Include event before and after the window.
 
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `surrounding` - Fetch the first event before and after the given
-                    period
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
         body (ScheduleitemModifyRequest):
@@ -104,24 +98,18 @@ def sync(
     client: AuthenticatedClient,
     body: ScheduleitemModifyRequest,
 ) -> Optional[ScheduleitemModify]:
-    r"""Video events schedule
+    """Video events schedule
 
+    list:
     Query parameters
     ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
 
-    `date` - Date expressed in the format YYYY-MM-DD (eg. 2020-12-31), or
-             \"today\".  Default is today, Europe/Oslo time.
+    `days`: Number of days. Defaults to 1.
 
-    `days` - Number of days schedule requested. Default is 7 days.
+    `surrounding`: Include event before and after the window.
 
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `surrounding` - Fetch the first event before and after the given
-                    period
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
         body (ScheduleitemModifyRequest):
@@ -145,24 +133,18 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     body: ScheduleitemModifyRequest,
 ) -> Response[ScheduleitemModify]:
-    r"""Video events schedule
+    """Video events schedule
 
+    list:
     Query parameters
     ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
 
-    `date` - Date expressed in the format YYYY-MM-DD (eg. 2020-12-31), or
-             \"today\".  Default is today, Europe/Oslo time.
+    `days`: Number of days. Defaults to 1.
 
-    `days` - Number of days schedule requested. Default is 7 days.
+    `surrounding`: Include event before and after the window.
 
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `surrounding` - Fetch the first event before and after the given
-                    period
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
         body (ScheduleitemModifyRequest):
@@ -189,24 +171,18 @@ async def asyncio(
     client: AuthenticatedClient,
     body: ScheduleitemModifyRequest,
 ) -> Optional[ScheduleitemModify]:
-    r"""Video events schedule
+    """Video events schedule
 
+    list:
     Query parameters
     ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
 
-    `date` - Date expressed in the format YYYY-MM-DD (eg. 2020-12-31), or
-             \"today\".  Default is today, Europe/Oslo time.
+    `days`: Number of days. Defaults to 1.
 
-    `days` - Number of days schedule requested. Default is 7 days.
+    `surrounding`: Include event before and after the window.
 
-    `page_size` - How many items per page. If set to 0 it will list
-                  all items.  Default is 50 items.
-
-    `surrounding` - Fetch the first event before and after the given
-                    period
-
-    `ordering` - Order results by specified field.  Prepend a minus for
-                 descending order.  I.e. `?ordering=-starttime`.
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
         body (ScheduleitemModifyRequest):

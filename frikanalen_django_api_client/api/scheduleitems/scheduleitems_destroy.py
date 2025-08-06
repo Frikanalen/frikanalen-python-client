@@ -9,11 +9,11 @@ from ...types import Response
 
 
 def _get_kwargs(
-    id: str,
+    id: int,
 ) -> dict[str, Any]:
     _kwargs: dict[str, Any] = {
         "method": "delete",
-        "url": f"/api/scheduleitems/{id}",
+        "url": f"/api/scheduleitems/{id}/",
     }
 
     return _kwargs
@@ -38,14 +38,25 @@ def _build_response(*, client: Union[AuthenticatedClient, Client], response: htt
 
 
 def sync_detailed(
-    id: str,
+    id: int,
     *,
     client: AuthenticatedClient,
 ) -> Response[Any]:
-    """Schedule item details
+    """Video events schedule
+
+    list:
+    Query parameters
+    ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
+
+    `days`: Number of days. Defaults to 1.
+
+    `surrounding`: Include event before and after the window.
+
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
-        id (str):
+        id (int):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -67,14 +78,25 @@ def sync_detailed(
 
 
 async def asyncio_detailed(
-    id: str,
+    id: int,
     *,
     client: AuthenticatedClient,
 ) -> Response[Any]:
-    """Schedule item details
+    """Video events schedule
+
+    list:
+    Query parameters
+    ----------------
+    `date`: YYYY-MM-DD or 'today' (Europe/Oslo). Defaults to today.
+
+    `days`: Number of days. Defaults to 1.
+
+    `surrounding`: Include event before and after the window.
+
+    `ordering`: Field to order by. Prefix '-' for desc. Defaults to 'starttime'.
 
     Args:
-        id (str):
+        id (int):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
